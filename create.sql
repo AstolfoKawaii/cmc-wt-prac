@@ -6,7 +6,8 @@ create table users (
     email varchar(64) not null,
     phone varchar(64) not null,
     mailing_address text not null,
-    passwd_hash varchar(64) not null
+    passwd_hash varchar(64) not null,
+    deleted bool not null default false
 );
 
 create table books (
@@ -16,7 +17,8 @@ create table books (
     price money not null,
     quantity int not null,
     seller_id int not null references users,
-    additional_info jsonb not null
+    additional_info jsonb not null,
+    deleted bool not null default false
 );
 
 create table genres (
@@ -43,6 +45,8 @@ create table author_book (
     primary key (author_id, book_id)
 );
 
+create type order_status as enum ('new', 'approved', 'delivered');
+
 create table orders (
     id serial primary key,
     book_id int not null references books,
@@ -50,7 +54,9 @@ create table orders (
     mailing_address text not null,
     total_actual_price money not null,
     quantity int not null,
-    datetime timestamp not null
+    placed_at timestamp not null,
+    status order_status not null,
+    updated_at timestamp not null
 );
 
 commit;

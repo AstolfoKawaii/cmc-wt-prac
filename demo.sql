@@ -30,9 +30,9 @@ insert into author_book (author_id, book_id) values
     (2, 1),
     (3, 1);
 
-insert into orders (book_id, buyer_id, mailing_address, total_actual_price, quantity, datetime) values
-    (1, 2, '5415 Almeda Ave Arverne NY 11692', 20::money, 2, '2024-01-08 04:05:06'),
-    (1, 3, 'Krasnodar, Dzerzhinsky Street, 8', 200::money, 25, '2024-01-026 05:32:12'),
-    (3, 3, 'Krasnodar, Dzerzhinsky Street, 8', 3::money, 1, '2024-02-01 05:15:29');
+insert into orders (book_id, buyer_id, mailing_address, total_actual_price, quantity, placed_at, status, updated_at) values
+    (1, 2, '5415 Almeda Ave Arverne NY 11692', 20::money, 2, '2024-01-08 04:05:06', 'new', '2024-01-08 04:05:06'),
+    (1, 3, 'Krasnodar, Dzerzhinsky Street, 8', 200::money, 25, '2024-01-26 05:32:12', 'approved', '2024-01-26 05:32:12'),
+    (3, 3, 'Krasnodar, Dzerzhinsky Street, 8', 3::money, 1, '2024-02-01 05:15:29', 'delivered', '2024-02-01 05:15:29');
 
 commit;
