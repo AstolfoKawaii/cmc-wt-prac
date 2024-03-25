@@ -6,9 +6,9 @@ insert into users (full_name, email, phone, mailing_address, passwd_hash) values
     ('Andrey Karpov', 'al@ca.sh', '+79858765005', 'Krasnodar, Dzerzhinsky Street, 8', 'f51af67e2a2fcfdb209e706d044f2442b363196860f4e7b7ede1d2914d0547ef');
 
 insert into books (title, description, price, quantity, seller_id, additional_info) values
-    ('Breath, Eyes, Memory', 'A book about Breath, Eyes, and Memory', 17::money, 0, 1, '{}'::jsonb),
-    ('House of Flame and Shadow', 'A book about a house with some flames and shadows', 11::money, 10, 1, '{}'::jsonb),
-    ('The Heaven & Earth Grocery Store', 'Something about carrots', 20::money, 12, 1, '{}'::jsonb);
+    ('Breath, Eyes, Memory', 'A book about Breath, Eyes, and Memory', 1700, 0, 1, '{}'::jsonb),
+    ('House of Flame and Shadow', 'A book about a house with some flames and shadows', 1100, 10, 1, '{}'::jsonb),
+    ('The Heaven & Earth Grocery Store', 'Something about carrots', 2000, 12, 1, '{}'::jsonb);
 
 insert into genres (genre) values
     ('Fiction'),
@@ -31,8 +31,8 @@ insert into author_book (author_id, book_id) values
     (3, 1);
 
 insert into orders (book_id, buyer_id, mailing_address, total_actual_price, quantity, placed_at, status, updated_at) values
-    (1, 2, '5415 Almeda Ave Arverne NY 11692', 20::money, 2, '2024-01-08 04:05:06', 'new', '2024-01-08 04:05:06'),
-    (1, 3, 'Krasnodar, Dzerzhinsky Street, 8', 200::money, 25, '2024-01-26 05:32:12', 'approved', '2024-01-26 05:32:12'),
-    (3, 3, 'Krasnodar, Dzerzhinsky Street, 8', 3::money, 1, '2024-02-01 05:15:29', 'delivered', '2024-02-01 05:15:29');
+    (1, 2, '5415 Almeda Ave Arverne NY 11692', 2000, 2, '2024-01-08 04:05:06', 'NEW', '2024-01-08 04:05:06'),
+    (1, 3, 'Krasnodar, Dzerzhinsky Street, 8', 20000, 25, '2024-01-26 05:32:12', 'APPROVED', '2024-01-26 05:32:12'),
+    (3, 3, 'Krasnodar, Dzerzhinsky Street, 8', 300, 1, '2024-02-01 05:15:29', 'DELIVERED', '2024-02-01 05:15:29');
 
 commit;

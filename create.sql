@@ -3,7 +3,7 @@ begin;
 create table users (
     id serial primary key,
     full_name varchar(64) not null,
-    email varchar(64) not null,
+    email varchar(64) unique not null,
     phone varchar(64) not null,
     mailing_address text not null,
     passwd_hash varchar(64) not null,
@@ -14,7 +14,7 @@ create table books (
     id serial primary key,
     title varchar(64) not null,
     description text not null,
-    price money not null,
+    price int not null, -- in cents
     quantity int not null,
     seller_id int not null references users,
     additional_info jsonb not null,
@@ -45,14 +45,14 @@ create table author_book (
     primary key (author_id, book_id)
 );
 
-create type order_status as enum ('new', 'approved', 'delivered');
+create type order_status as enum ('NEW', 'APPROVED', 'DELIVERED');
 
 create table orders (
     id serial primary key,
     book_id int not null references books,
     buyer_id int not null references users,
     mailing_address text not null,
-    total_actual_price money not null,
+    total_actual_price int not null, -- in cents
     quantity int not null,
     placed_at timestamp not null,
     status order_status not null,

@@ -8,6 +8,7 @@ podman run --rm -d \
     --network host \
     --name cmc-wt-pgsql \
     -e POSTGRES_PASSWORD=123 \
+    -e POSTGRES_DB=books \
     docker.io/library/postgres:14
 
 sleep 10
